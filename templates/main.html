@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StydyBud</title>
-</head>
-<body>
+  </head>
+  <body>
+    {% include 'navbar.html' %} {% if messages %}
 
-    {% include "navbar.html" %}
 
-    {% block content %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {{ message }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %} 
     
-    {% endblock  %}
-
-
-
-
     
-</body>
+    {% block content %} {% endblock %}
+  </body>
 </html>
