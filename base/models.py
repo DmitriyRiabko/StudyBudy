@@ -28,10 +28,6 @@ class Room(models.Model):
         return str(self.name)
     
     
-
-    
-    
-    
     
 class Message(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
